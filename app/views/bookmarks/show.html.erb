@@ -1,0 +1,4 @@
+<h1><%= @bookmark.movie.title %></h1>
+<p><%= @bookmark.comment %></p>
+
+<%= link_to 'Go back to Bookmarks list', list_bookmarks_path(list_id: @bookmark.list_id) %>

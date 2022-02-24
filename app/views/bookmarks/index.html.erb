@@ -1,0 +1,17 @@
+<h1>Bookmarks</h1>
+<%= link_to 'Add new Bookmark', new_list_bookmark_path(list_id: @list.id) %>
+<div class="container">
+  <ul>
+    <%@bookmarks.each do |bookmark| %>
+      <li>
+        <%=link_to bookmark.comment, list_bookmark_path(id: bookmark.id)  %>
+        <%= link_to "Delete",
+            bookmark_path(id: bookmark.id),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to 'Go back to List show', list_path(id: @list.id) %>

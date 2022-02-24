@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ListsController < ApplicationController
   def index
     @lists = List.all
@@ -13,8 +15,11 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    @list.save
-    redirect_to lists_path
+    if @list.save
+      redirect_to list_path(id: @list.id)
+    else
+      render new_list_path
+    end
   end
 
   private

@@ -1,6 +1,30 @@
-<h1>List "<%= @list.name %>"</h1>
-<p><%= link_to 'View bookmarks in this list', list_bookmarks_path(list_id: @list.id) %></p>
-<% @list.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<%= link_to 'Back to all lists', lists_path %>
+<div class=" mb-4 text-white show-banner" >
+ <%= cl_image_tag @list.photos.first.key %>
+  <div class="col-md-6 px-0 position-absolute">
+    <h1 class="display-2"><%= @list.name %></h1>
+  </div>
+</div>
+<div class="container w-75 d-flex justify-content-end">
+  <%= link_to "Add a movie", new_list_bookmark_path(list_id: @list.id), class: "btn btn-success" %>
+</div>
+<div class="container w-75 d-flex justify-content-center gap-2">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card" style="width: 23rem;">
+      <img src=<%= bookmark.movie.poster_url%>  class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title"><strong><%= bookmark.movie.title %></strong> -  <%= bookmark.movie.rating %> ⭐️</h5>
+        <p class="card-text t"><%= bookmark.movie.overview %></p>
+      </div>
+      <%= link_to 'Delete', bookmark_path(id: bookmark.id), method: :delete, class: 'text-danger px-3 pb-3' %>
+    </div>
+  <% end %>
+</div>
+
+<%# <div class="card" style="width: 18rem;">
+  <img src="..." alt="...">
+
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> %>

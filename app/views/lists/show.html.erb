@@ -4,7 +4,7 @@
     <h1 class="display-2"><%= @list.name %></h1>
   </div>
 </div>
-<div class="container w-75 d-flex justify-content-end">
+<div class="container w-75 d-flex justify-content-end py-3">
   <%= link_to "Add a movie", new_list_bookmark_path(list_id: @list.id), class: "btn btn-success" %>
 </div>
 <div class="container w-75 d-flex justify-content-center gap-2">
@@ -15,7 +15,10 @@
         <h5 class="card-title"><strong><%= bookmark.movie.title %></strong> -  <%= bookmark.movie.rating %> ⭐️</h5>
         <p class="card-text text-muted"><%= bookmark.movie.overview %></p>
       </div>
-      <%= link_to 'Delete', bookmark_path(id: bookmark.id), method: :delete, class: 'text-danger px-3 pb-3' %>
+      <div class="d-flex justify-content-between">
+        <p class='px-3'><small><strong>“<%= bookmark.comment %></strong></small></p>
+        <%= link_to 'Delete', bookmark_path(id: bookmark.id), method: :delete, class: 'text-danger px-3 pb-3' %>
+      </div>
     </div>
   <% end %>
 </div>

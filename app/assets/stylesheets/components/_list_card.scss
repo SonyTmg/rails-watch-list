@@ -1,0 +1,21 @@
+.list-card{
+  position: relative;
+  width: 420px;
+
+  img {
+    border-radius: 6px;
+    box-shadow: 2px 2px 12px rgb(179, 176, 176);
+  }
+
+  a {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: 700;
+    top: 50%;
+  }
+}

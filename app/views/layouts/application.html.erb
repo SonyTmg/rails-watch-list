@@ -11,6 +11,16 @@
   </head>
 
   <body>
+    <div class="p-2 my-2 d-flex justify-content-between">
+      <div>
+        <%= link_to root_path do  %>
+          <img src="https://cdn-icons-png.flaticon.com/512/184/184578.png" width="50" alt="">
+        <% end %>
+      </div>
+      <div>
+        <%= link_to 'New list', new_list_path, class: "btn btn-primary" %>
+      </div>
+    </div>
     <div class="container w-75">
       <%= yield %>
     </div>

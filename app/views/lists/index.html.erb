@@ -10,7 +10,7 @@
 
 </div>
 
-<div class="container w-80 d-flex justify-content-center">
+<div class="container w-80 d-flex justify-content-center flex-wrap gap-2">
   <%@lists.each do |list| %>
     <div class="list-card">
       <%= cl_image_tag(list.photos.first.key, width: 400, height: 300, crop: :fill) %>

@@ -13,7 +13,7 @@
       <img src=<%= bookmark.movie.poster_url%>  class="card-img-top" alt="">
       <div class="card-body">
         <h5 class="card-title"><strong><%= bookmark.movie.title %></strong> -  <%= bookmark.movie.rating %> ⭐️</h5>
-        <p class="card-text t"><%= bookmark.movie.overview %></p>
+        <p class="card-text text-muted"><%= bookmark.movie.overview %></p>
       </div>
       <%= link_to 'Delete', bookmark_path(id: bookmark.id), method: :delete, class: 'text-danger px-3 pb-3' %>
     </div>
